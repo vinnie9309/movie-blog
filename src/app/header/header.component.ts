@@ -7,12 +7,11 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
+  
+  
   
   faFilm = faFilm;
 }

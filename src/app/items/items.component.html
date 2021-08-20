@@ -1,0 +1,13 @@
+<div class="catalogue">
+    <article class="movie" *ngFor="let item of items">
+        <img [src]="item.img" alt="">
+        <article class="info">
+            <h1>{{ item.title }} </h1>
+            <p>{{item.description}}</p>
+            <div class="button-wrapper">
+                <button class="edit">EDIT</button>
+                <button class="delete">DELETE</button>
+            </div>
+        </article>
+    </article>
+</div>

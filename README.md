@@ -34,8 +34,9 @@ Users will be able to register and login.
 Every item in the catalogue of movies will consist of a poster, description, genre name of user who added it and some option for
 like/subscribe or etc.
 The pages will be - 
-1. Main - showing only a few of the most popular movies
+1. Main - showing only a few of the added movies
 2. Register
 3. Login
 4. Catalogue
 5. Edit(only for the creator of the post)
+6. Add movie(only for logged users)
