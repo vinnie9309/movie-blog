@@ -1,0 +1,13 @@
+footer {
+    position: absolute;
+    bottom: 0;
+    background: rgb(207,30,21);
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-left: 98px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    color: #FFFA8B;
+}

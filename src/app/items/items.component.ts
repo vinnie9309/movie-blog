@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
+import { ItemService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-items',
@@ -10,10 +10,10 @@ export class ItemsComponent implements OnInit {
 
   items: Array<any> = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: ItemService) { }
 
   ngOnInit() {
-    this.dataService.getItems().subscribe( data => {
+    this.dataService.getItems().subscribe((data: any[]) => {
       this.items = data;
     });
   }

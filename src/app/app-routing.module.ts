@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AddMovieComponent } from './add-movie/add-movie.component';
 import { HomeComponent } from './home/home.component';
+import { ItemsComponent } from './items/items.component';
 
 const routes: Routes = [
   {
@@ -12,8 +14,17 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
-  
-  
+  {
+    path: 'items',
+    component: ItemsComponent
+  },
+  {
+    path: 'add-movie',
+    component: AddMovieComponent
+  }
+
+
+
 ];
 
 @NgModule({

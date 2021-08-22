@@ -1,0 +1,8 @@
+<h2>Sign up</h2>
+<form #f="ngForm" (ngSubmit)="onSubmit(emailSignup.value, passwordSignup.value)">
+    <input type="text" placeholder="First Name">
+    <input type="text" #emailSignup/>
+    <input type="password" #passwordSignup/>
+    <input type="password" #passwordRepeatSignup/>
+    <button>Sign Up</button>
+</form>

@@ -1,5 +1,5 @@
 <div class="catalogue">
-    <article class="movie" *ngFor="let item of items">
+    <article class="movie" *ngFor="let item of items | slice:0:6">
         <img [src]="item.img" alt="">
         <article class="info">
             <h1>{{ item.title }} </h1>

@@ -1,0 +1,28 @@
+<header>
+    <div id="home-logo">
+        <fa-icon [icon]="faFilm" class="logo" routerLink = '/'></fa-icon>
+    </div>
+   
+    <ul class="buttons-header">
+        <li>
+            <a routerLink ='/items'>ALL MOVIES</a>
+        </li>
+        <li *ngIf="!userLoggedIn">
+            <a routerLink="/login">LOGIN</a>
+        </li>
+        <li *ngIf="!userLoggedIn">
+            <a routerLink="/register">REGISTER</a>
+        </li>
+        <li *ngIf="userLoggedIn">
+            <a (click)="logOut()">LOGOUT</a>
+        </li>
+        <li *ngIf="userLoggedIn">
+            <a routerLink ='/add-movie'>ADD MOVIE</a>
+        </li>
+        <li *ngIf="userLoggedIn">
+            <a>PROFILE</a>
+        </li>
+
+    </ul>
+
+</header>
