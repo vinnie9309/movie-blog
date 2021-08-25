@@ -1,19 +1,37 @@
 <div class="form-wrapper">
-  <span class="form-title">Add Movie</span>
+  <h1 class="form-title">ADD MOVIE</h1>
   <form (ngSubmit)="onSubmit()" class="form-add">
     <div class="row">
       <div class="input-field">
-        <input type="text" placeholder="Add Title" [(ngModel)]="item.title" name="title">
-
+        <input #addTitle="ngModel" type="text" placeholder="Add Title" [(ngModel)]="item.title" name="title" required>
       </div>
+      <ng-container *ngIf="addTitle.touched">
+        <p *ngIf="addTitle.errors?.required" class="error">
+          You can't add a movie with no title.
+        </p>
+      </ng-container>
       <div class="input-field">
-        <input type="text" placeholder="Add Image Link" [(ngModel)]="item.img" name="img">
-
+        <input #addImage="ngModel" type="text" placeholder="Add Image Link" [(ngModel)]="item.img" name="img" required [minlength]="10">
       </div>
+      <ng-container *ngIf="addImage.touched">
+        <p *ngIf="addImage.errors?.required" class="error">
+          You need to paste a link.
+        </p>
+        <p *ngIf="addImage.errors?.minlength" class="error">
+          Link has to be at least 10 characters.
+        </p>
+      </ng-container>
       <div class="input-field">
-        <input type="text" placeholder="Add Description" [(ngModel)]="item.description" name="description">
-
+        <input #addDescription="ngModel" type="text" placeholder="Add Description" [(ngModel)]="item.description" name="description" required [minlength]= "50">
       </div>
+      <ng-container *ngIf="addDescription.touched">
+        <p *ngIf="addDescription.errors?.required" class="error">
+          Add description.
+        </p>
+        <p *ngIf="addDescription.errors?.minlength" class="error">
+          Description has to be at least 50 characters.
+        </p>
+      </ng-container>
       <input type="submit" value="SUBMIT" class="button">
     </div>
   </form>

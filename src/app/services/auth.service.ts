@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class FirebaseService {
-    // isLoggedIn: boolean = false;
+    
     isLoggedIn = new BehaviorSubject(false);
 
     constructor(public firebaseAuth: AngularFireAuth) { }
@@ -29,6 +29,7 @@ export class FirebaseService {
         this.firebaseAuth.signOut();
         localStorage.removeItem('user')
     }
+    
 }
 
 

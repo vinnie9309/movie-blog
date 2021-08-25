@@ -1,5 +1,5 @@
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     background: rgb(207,30,21);
     width: 90%;
@@ -10,4 +10,5 @@ footer {
     border-top-right-radius: 20px;
     text-align: center;
     color: #FFFA8B;
+    flex-shrink: 0;
 }

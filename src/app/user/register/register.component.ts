@@ -1,36 +1,35 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from '../../services/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { formValue } from '../../interfaces/IUser';
+import { UserService } from 'src/app/services/user.service';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent {
-
+  
+ 
   constructor(
-    public authService: FirebaseService,
+    private authService: FirebaseService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-    ) {  }
+    private userService: UserService
+  ) { }
 
-  // async onSignup(email: string, password: string) {
-  //   await this.firebaseService.signup(email, password);
-  //   if (this.firebaseService.isLoggedIn) {
-  //     const redirectUrl = this.activatedRoute.snapshot.queryParams.redirectUrl || '/';
-  //     this.router.navigate([redirectUrl]);
-  //     this.authService.isLoggedIn.next(true);
-  //   }
-  // }
+  
 
-  async onSubmit(email: string, password: string) {
-    await this.authService.signup(email, password);
+  async onSubmit(submitValue: formValue) {
+    const password = submitValue.password;
+    const email = submitValue.email;
+    await this.authService.signup(email, password)
     if (this.authService.isLoggedIn) {
-      const redirectUrl = this.activatedRoute.snapshot.queryParams.redirectUrl || '/';
-      this.router.navigate([redirectUrl]);
+      // this.userService.addItem(submitValue)
+      this.router.navigate(['/']);
       this.authService.isLoggedIn.next(true);
     }
-    console.log('submitnaame', email, password);
   }
 }

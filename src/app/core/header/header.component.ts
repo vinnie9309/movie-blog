@@ -31,9 +31,9 @@ export class HeaderComponent implements OnInit {
    }
 
    logOut(): void {
-    console.log('here');
     this.userLoggedIn = false;
     this.authService.logout();
+    this.router.navigate(['/']);
    }
   
   faFilm = faFilm;

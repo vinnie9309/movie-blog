@@ -3,4 +3,5 @@ export interface Item {
     description?: string;
     img?:string;
     title?:string;
+    creator?: any;
   }

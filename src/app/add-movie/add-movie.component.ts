@@ -1,29 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { ItemService } from '../services/data.service';
 import { Item } from '../interfaces/Item';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-movie',
   templateUrl: './add-movie.component.html',
   styleUrls: ['./add-movie.component.css']
 })
-export class AddMovieComponent implements OnInit {
+
+
+export class AddMovieComponent {
   item: Item = {
     description: '',
     img: '',
-    title: ''
+    title: '',
+    creator: this.getEmail()
   }
 
-  constructor(private itemService: ItemService) { }
-
-  ngOnInit() {
+  getEmail() {
+    let currentUser = JSON.parse(localStorage.getItem('user') || '{}')
+    const emailUser = currentUser.email;
+    return emailUser;
   }
+
+  constructor(
+    private itemService: ItemService,
+    private router: Router
+  ) { }
+  
+
   onSubmit() {
-    if (this.item.title != '' && this.item.description != '') {
+    if (this.item.title != '' && this.item.description != '' && this.item.img != '') {
       this.itemService.addItem(this.item);
-      this.item.title = '';
-      this.item.description = '';
-      this.item.img = '';
+      this.router.navigate(['/items'])
     }
   }
 

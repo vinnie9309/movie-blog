@@ -1,8 +1,67 @@
-<h2>Sign up</h2>
-<form #f="ngForm" (ngSubmit)="onSubmit(emailSignup.value, passwordSignup.value)">
-    <input type="text" placeholder="First Name">
-    <input type="text" #emailSignup/>
-    <input type="password" #passwordSignup/>
-    <input type="password" #passwordRepeatSignup/>
-    <button>Sign Up</button>
-</form>
+<div class="form-container">
+  <form #formVar="ngForm" (ngSubmit)="onSubmit(formVar.value)">
+    <h1>REGISTER</h1>
+    <p class="form-email">
+      <input #emailInput="ngModel" ngModel class="input-error" type="email" name="email" id="email"
+        placeholder="your@email.here" required>
+    </p>
+    <ng-container *ngIf="emailInput.touched">
+      <p *ngIf="emailInput.errors?.required" class="error">
+        Email is required!
+      </p>
+    </ng-container>
+    <p class="form-password">
+      <input #passwordInput="ngModel" ngModel type="password" name="password" id="password" placeholder="Password"
+        [minlength]="6" required>
+    </p>
+    <ng-container *ngIf="passwordInput.touched">
+      <p *ngIf="passwordInput.errors?.required" class="error">
+        Password is required!
+      </p>
+      <p *ngIf="passwordInput.errors?.minlength" class="error">
+        Password must be at least 6 characters!
+      </p>
+    </ng-container>
+    <p class="form-rePassword">
+      <input #rePasswordInput="ngModel" ngModel type="password" name="rePassword" id="rePassword"
+        placeholder="Repeat Password" [minlength]="6" required>
+    </p>
+    <ng-container *ngIf="rePasswordInput.touched">
+      <p *ngIf="rePasswordInput.errors?.required" class="error">
+        Repeat password is required!
+      </p>
+      <p *ngIf="rePasswordInput.errors?.minlength" class="error">
+        Repeat Password must be at least 6 characters!
+      </p>
+    </ng-container>
+
+    <p class="form-username">
+      <input #usernameInput="ngModel" ngModel class="input-error" type="text" name="username" id="username"
+        placeholder="yourUsername" [minlength]="4" required>
+    </p>
+    <ng-container *ngIf="usernameInput.touched">
+      <p *ngIf="usernameInput.errors?.required" class="error">
+        Username is required!
+      </p>
+      <p *ngIf="usernameInput.errors?.minlength" class="error">
+        Username must be at least 4 characters!
+      </p>
+    </ng-container>
+    <p class="form-age">
+      <input #ageInput="ngModel" ngModel class="input-error" type="number" name="age" id="age"
+        placeholder="Age" required>
+    </p>
+    <ng-container *ngIf="ageInput.touched">
+      <p *ngIf="ageInput.errors?.required" class="error">
+        Age is required!
+      </p>
+    </ng-container>
+    <div class="submit">
+      <button [disabled]="formVar.invalid">REGISTER</button>
+    </div>
+    <p class="reg-question">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+  </p>
+  </form>
+</div>

@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { FirebaseService } from '../../services/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { formValue } from 'src/app/interfaces/IUser';
 
 
 @Component({
@@ -10,19 +11,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class LoginComponent {
-  title = 'movie-blog';
-  isLoggedIn = false;
 
   constructor(
-    public firebaseService: FirebaseService,
-    private activatedRoute: ActivatedRoute,
+    public authService: FirebaseService,
     private router: Router
     ) { }
  
-  async onSignin(email: string, password: string) {
-    await this.firebaseService.signin(email, password);
-    if (this.firebaseService.isLoggedIn) {
-      this.isLoggedIn = true
+  async onSignin(submitValue: formValue) {
+    const password = submitValue.password;
+    const email = submitValue.email;
+    await this.authService.signin(email, password);
+    if (this.authService.isLoggedIn) {
+      this.authService.isLoggedIn.next(true);
+      this.router.navigate(['/'])
     }
   }
   

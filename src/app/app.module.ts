@@ -25,11 +25,10 @@ import { FormsModule } from '@angular/forms';
     UserModule,
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase, 'movie-blog'),
-    AppRoutingModule,
     AngularFirestoreModule,
-    AppRoutingModule,
     CoreModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
     
   ],
   providers: [],
