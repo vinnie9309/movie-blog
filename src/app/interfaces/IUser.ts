@@ -1,7 +1,9 @@
 export interface formValue {
+  uid: string;
   email: string;
   password: string;
-  repassword: string;
+  rePassword: string;
   age: string;
   username: string;
 }
+

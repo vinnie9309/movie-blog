@@ -33,6 +33,9 @@
       <p *ngIf="rePasswordInput.errors?.minlength" class="error">
         Repeat Password must be at least 6 characters!
       </p>
+      <p *ngIf="passwordInput.value !== rePasswordInput.value" class="error">
+        Passwords do not match!
+      </p>
     </ng-container>
 
     <p class="form-username">
@@ -40,16 +43,18 @@
         placeholder="yourUsername" [minlength]="4" required>
     </p>
     <ng-container *ngIf="usernameInput.touched">
+      
       <p *ngIf="usernameInput.errors?.required" class="error">
         Username is required!
       </p>
+
       <p *ngIf="usernameInput.errors?.minlength" class="error">
         Username must be at least 4 characters!
       </p>
     </ng-container>
     <p class="form-age">
-      <input #ageInput="ngModel" ngModel class="input-error" type="number" name="age" id="age"
-        placeholder="Age" required>
+      <input #ageInput="ngModel" ngModel class="input-error" type="number" name="age" id="age" placeholder="Age"
+        required>
     </p>
     <ng-container *ngIf="ageInput.touched">
       <p *ngIf="ageInput.errors?.required" class="error">
@@ -62,6 +67,6 @@
     <p class="reg-question">
       Already have an account?
       <a routerLink="/login">Login</a>
-  </p>
+    </p>
   </form>
 </div>

@@ -14,8 +14,7 @@ export class UserService {
 
 
     constructor(public fireStore: AngularFirestore) {
-
-        this.usersCollection = this.fireStore.collection('users', ref => ref.orderBy('username', 'asc'));
+        this.usersCollection = this.fireStore.collection('users');
         this.users = this.usersCollection.snapshotChanges().pipe(map(changes => {
             return changes.map(a => {
                 const data = a.payload.doc.data() as formValue;
@@ -28,7 +27,7 @@ export class UserService {
     getUser() {
         return this.users;
     }
-    addItem(user: formValue) {
+    addUser(user: any) {
         this.usersCollection.add(user);
     }
 }

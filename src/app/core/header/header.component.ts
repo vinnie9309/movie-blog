@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../../services/auth.service';
@@ -12,29 +12,31 @@ import { FirebaseService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
 
   userLoggedIn = false;
-
+  
   constructor(
     private router: Router,
     private authService: FirebaseService
+
   ) {
-    this.authService.isLoggedIn.subscribe( loggedIn => {
-      if( loggedIn )
+    this.authService.isLoggedIn.subscribe(loggedIn => {
+      if (loggedIn)
         this.userLoggedIn = true;
     })
-   }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     const getUser: string | null = localStorage.getItem('user');
-    if(getUser) {
+    if (getUser) {
       this.userLoggedIn = true;
     }
-   }
+  }
 
-   logOut(): void {
-    this.userLoggedIn = false;
+  logOut(): void {
     this.authService.logout();
     this.router.navigate(['/']);
-   }
-  
+    
+    this.userLoggedIn = false;
+  }
+
   faFilm = faFilm;
 }

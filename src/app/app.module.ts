@@ -18,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     ItemsComponent, 
-    HomeComponent, AddMovieComponent 
+    HomeComponent, 
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,

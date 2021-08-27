@@ -5,6 +5,7 @@ import { RegisterComponent } from '../user/register/register.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     CommonModule,
     UserRoutingModule,
+    FontAwesomeModule,
     FormsModule
   ]
 })

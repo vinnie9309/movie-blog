@@ -22,10 +22,13 @@ export class ItemsComponent implements OnInit {
     this.dataService.getItems().subscribe((items: any[]) => {
       this.items = items;
     });
-    
+
   }
   onDelete(item: Item) {
-    this.dataService.deleteItem(item);
+    const confirmed = confirm("Are you sure you want to delete this item?")
+    if (confirmed) {
+      this.dataService.deleteItem(item);
+    }
   }
 
   editItem(item: Item) {

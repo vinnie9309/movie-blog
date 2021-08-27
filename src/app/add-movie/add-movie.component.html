@@ -11,7 +11,7 @@
         </p>
       </ng-container>
       <div class="input-field">
-        <input #addImage="ngModel" type="text" placeholder="Add Image Link" [(ngModel)]="item.img" name="img" required [minlength]="10">
+        <input #addImage="ngModel" type="url" placeholder="Add Image Link" [(ngModel)]="item.img" name="img" pattern="https://.*" required [minlength]="10">
       </div>
       <ng-container *ngIf="addImage.touched">
         <p *ngIf="addImage.errors?.required" class="error">
@@ -22,7 +22,7 @@
         </p>
       </ng-container>
       <div class="input-field">
-        <input #addDescription="ngModel" type="text" placeholder="Add Description" [(ngModel)]="item.description" name="description" required [minlength]= "50">
+        <input #addDescription="ngModel" type="text" placeholder="Add Description" [(ngModel)]="item.description" name="description" required [minlength]= "30">
       </div>
       <ng-container *ngIf="addDescription.touched">
         <p *ngIf="addDescription.errors?.required" class="error">

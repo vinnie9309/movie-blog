@@ -13,14 +13,15 @@
         <li *ngIf="!userLoggedIn">
             <a routerLink="/register">REGISTER</a>
         </li>
-        <li *ngIf="userLoggedIn">
-            <a (click)="logOut()">LOGOUT</a>
-        </li>
+        
         <li *ngIf="userLoggedIn">
             <a routerLink ='/add-movie'>ADD MOVIE</a>
         </li>
         <li *ngIf="userLoggedIn">
             <a routerLink = '/profile'>PROFILE</a>
+        </li>
+        <li *ngIf="userLoggedIn">
+            <a (click)="logOut()">LOGOUT</a>
         </li>
 
     </ul>

@@ -20,7 +20,13 @@ export class LoginComponent {
   async onSignin(submitValue: formValue) {
     const password = submitValue.password;
     const email = submitValue.email;
-    await this.authService.signin(email, password);
+    try {
+      await this.authService.signin(email, password);
+    } catch (error) {
+      alert(error.message)
+      return;
+    }
+   
     if (this.authService.isLoggedIn) {
       this.authService.isLoggedIn.next(true);
       this.router.navigate(['/'])

@@ -1,4 +1,7 @@
-<article class="user" *ngFor="let user of user">
- 
-
+<article class="info">
+    <fa-icon [icon]="faUserCircle" class="logo" routerLink = '/'></fa-icon>
+    <h1>My Profile</h1>
+    <p class="username">USERNAME: {{user.username}}</p>
+    <p class="email">E-MAIL: {{user.email}}</p>
+    <p class="age">AGE: {{user.age}}</p>
 </article>

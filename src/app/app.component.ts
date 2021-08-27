@@ -18,9 +18,5 @@ export class AppComponent implements OnInit {
       this.isLoggedIn = false;
   }
 
-  handleLogout () {
-    this.isLoggedIn = false;
-  }
-
 
 }
